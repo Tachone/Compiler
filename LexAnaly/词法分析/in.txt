@@ -1,0 +1,30 @@
+#include<iostream>
+#include<string>
+#include<cmath>
+#include<cstring>
+
+/*欧几里得算法*/
+int main()
+{
+	int T,a,b,c,ans;
+	cin>>T;
+	while(T--)
+	{
+		cin>>a>>b>>c;
+		ans=0;
+		if(c%gcd(a,b)!=0)//应用
+		{
+			cout<<0<<endl;
+		}
+		else
+		{
+			for(int i=1;i<=(c-b)/a;i++)
+			{
+				if((c-a*i)/b*b==(c-a*i))
+				ans++;
+			}
+			cout<<ans<<endl;
+		}
+	}
+	return 0;
+}

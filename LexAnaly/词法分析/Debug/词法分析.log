@@ -1,0 +1,28 @@
+﻿生成启动时间为 2016/4/25 21:01:18。
+     1>项目“F:\c++\project\词法分析\词法分析\词法分析.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         E:\安装程序\VS2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Base.cpp LexAn.cpp main.cpp
+         main.cpp
+         正在生成代码...
+         正在编译...
+         LexAn.cpp
+     1>f:\c++\project\词法分析\词法分析\lexan.cpp(179): warning C4101: “k”: 未引用的局部变量
+     1>f:\c++\project\词法分析\词法分析\lexan.cpp(179): warning C4101: “j”: 未引用的局部变量
+     1>f:\c++\project\词法分析\词法分析\lexan.cpp(402): warning C4101: “i”: 未引用的局部变量
+     1>f:\c++\project\词法分析\词法分析\lexan.cpp(402): warning C4101: “k”: 未引用的局部变量
+     1>f:\c++\project\词法分析\词法分析\lexan.cpp(402): warning C4101: “j”: 未引用的局部变量
+         Base.cpp
+     1>f:\c++\project\词法分析\词法分析\base.cpp(84): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\c++\project\词法分析\词法分析\base.cpp(94): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\c++\project\词法分析\词法分析\base.cpp(127): warning C4018: “<”: 有符号/无符号不匹配
+         正在生成代码...
+       Link:
+         E:\安装程序\VS2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\c++\project\词法分析\Debug\词法分析.exe" /INCREMENTAL /NOLOGO opencv_ts300.lib opencv_world300.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\c++\project\词法分析\Debug\词法分析.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\c++\project\词法分析\Debug\词法分析.lib" /MACHINE:X86 Debug\Base.obj
+         Debug\LexAn.obj
+         Debug\main.obj
+         词法分析.vcxproj -> F:\c++\project\词法分析\Debug\词法分析.exe
+     1>已完成生成项目“F:\c++\project\词法分析\词法分析\词法分析.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.16
