@@ -1,0 +1,14 @@
+A的first集是: +$
+B的first集是: *$
+E的first集是: (i
+F的first集是: (i
+T的first集是: (i
+===================================
+E->TK
+K->+TK
+K->$
+T->FM
+M->*FM
+M->$
+F->i
+F->(E)
