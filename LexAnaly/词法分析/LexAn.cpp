@@ -15,7 +15,7 @@ void LexAn::scanwords()
 		{
 			break;
 		}
-		/*»»ĞĞ·û*/
+		/*æ¢è¡Œç¬¦*/
 		if (c == '\n' || count == 256 - 2)
 		{
 			if (count == 256 - 2)
@@ -66,7 +66,7 @@ void LexAn::scanwords()
 			bufferin[buffernum][count++] = c;
 		}
 	}
-	printf("´¦Àí½á¹ûÒÑ¾­±£´æµ½out.txtÏÂ\n");
+	printf("å¤„ç†ç»“æœå·²ç»ä¿å­˜åˆ°out.txtä¸‹\n");
 }
 
 void LexAn::clearnotes()
@@ -76,7 +76,7 @@ void LexAn::clearnotes()
 	int flag = 0;
 	char note[100];
 
-	/*×¢ÊÍ*/
+	/*æ³¨é‡Š*/
 	for (i = 0; bufferin[buffernum][i] != '\0'; i++)
 	{
 		if (bufferin[buffernum][i] == '"')
@@ -94,7 +94,7 @@ void LexAn::clearnotes()
 				}
 				note[noteCount] = '\0';
 				noteCount = 0;
-				fprintf(fout, "  [ %s ]  ----  [ ×¢ÊÍ ]\n", note);
+				fprintf(fout, "  [ %s ]  ----  [ æ³¨é‡Š ]\n", note);
 				bufferin[buffernum][i] = '\0';
 				break;
 			}
@@ -108,11 +108,12 @@ void LexAn::clearnotes()
 					note[noteCount++] = bufferin[buffernum][j];
 					if (bufferin[buffernum][j] == '*' && bufferin[buffernum][j + 1] == '/')
 					{
+						note[noteCount++] = bufferin[buffernum][j + 1];
 						j += 2;
 						note[noteCount++] = bufferin[buffernum][j];
 						note[noteCount] = '\0';
 						noteCount = 0;
-						fprintf(fout, "  [ %s ]  ----  [ ×¢ÊÍ ]\n", note);
+						fprintf(fout, "  [ %s ]  ----  [ æ³¨é‡Š ]\n", note);
 						break;
 					}
 				}
@@ -128,7 +129,7 @@ void LexAn::clearnotes()
 		}
 	}
 
-	//¿Õ¸ñ 
+	//ç©ºæ ¼ 
 	for (i = 0, flag = 0; bufferin[buffernum][i] != '\0'; i++)
 	{
 		if (bufferin[buffernum][i] == '"')
@@ -158,7 +159,7 @@ void LexAn::clearnotes()
 		}
 	}
 
-	//ÖÆ±í·û 
+	//åˆ¶è¡¨ç¬¦ 
 	for (i = 0, flag = 0; bufferin[buffernum][i] != '\0'; i++)
 	{
 		if (bufferin[buffernum][i] == '\t')
@@ -171,7 +172,7 @@ void LexAn::clearnotes()
 		}
 	}
 }
-//×´Ì¬»ú
+//çŠ¶æ€æœº
 void LexAn::getwords(int state)
 {
 	char word[100];
@@ -245,7 +246,7 @@ void LexAn::getwords(int state)
 				while (word[num] != '\0')
 					num++;
 
-				//³¤¶ÈµÄ´¦Àí £¡£¡
+				//é•¿åº¦çš„å¤„ç† ï¼ï¼
 				if (num>7)
 					word[7] = '\0';
 
@@ -404,37 +405,37 @@ void LexAn::wordkind(char str[])
 	int i, j, k;
 	int flag = 0;
 
-	/*ÅĞ¶ÏÊÇ·ñÎª¹Ø¼ü×Ö»ò±êÊ¶·û*/
+	/*åˆ¤æ–­æ˜¯å¦ä¸ºå…³é”®å­—æˆ–æ ‡è¯†ç¬¦*/
 	if (keyword(str) == 1)
 	{
 		if (strcmp(str, "true") == 0 || strcmp(str, "false") == 0)
 		{
-			fprintf(fout, "  [ %s ]  ----  [ ²¼¶ûĞÍ ]\n", str);
+			fprintf(fout, "  [ %s ]  ----  [ å¸ƒå°”å‹ ]\n", str);
 		}
 		else
 		{
-			fprintf(fout, "  [ %s ]  ----  [ ¹Ø¼ü×Ö ]\n", str);
+			fprintf(fout, "  [ %s ]  ----  [ å…³é”®å­— ]\n", str);
 		}
 	}
 	else if (signwords(str) == 1)
 	{
-		fprintf(fout, "  [ %s ]  ----  [ ±êÊ¶·û ]\n", str);
+		fprintf(fout, "  [ %s ]  ----  [ æ ‡è¯†ç¬¦ ]\n", str);
 	}
 	else if (integers(str) == 1)
 	{
-		fprintf(fout, "  [ %s ]  ----  [ ÕûĞÍ ]\n", str);
+		fprintf(fout, "  [ %s ]  ----  [ æ•´å‹ ]\n", str);
 	}
 	else if (floats(str) == 1)
 	{
-		fprintf(fout, "  [ %s ]  ----  [ ¸¡µãĞÍ ]\n", str);
+		fprintf(fout, "  [ %s ]  ----  [ æµ®ç‚¹å‹ ]\n", str);
 	}
 	else if (str[0] == '\'' && str[strlen(str) - 1] == '\'')
 	{
-		fprintf(fout, "  [ %s ]  ----  [ ×Ö·ûĞÍ ]\n", str);
+		fprintf(fout, "  [ %s ]  ----  [ å­—ç¬¦å‹ ]\n", str);
 	}
 	else if (str[0] == '"' && str[strlen(str) - 1] == '"')
 	{
-		fprintf(fout, "  [ %s ]  ----  [ ×Ö·û´® ]\n", str);
+		fprintf(fout, "  [ %s ]  ----  [ å­—ç¬¦ä¸² ]\n", str);
 	}
 	else if (spaces(str[0]) == 1 && str[0] != '"' && str[0] != '\'')
 	{
@@ -454,7 +455,7 @@ void LexAn::wordkind(char str[])
 			}
 			else
 			{
-				fprintf(fout, "  [ %s ]  ----  [ ÔËËã·û ]\n", str);
+				fprintf(fout, "  [ %s ]  ----  [ è¿ç®—ç¬¦ ]\n", str);
 			}
 		}
 		else if (strcmp(str, "||") == 0)
@@ -474,7 +475,7 @@ void LexAn::wordkind(char str[])
 			switch (str[0])
 			{
 			case '?': case ':': fprintf(fout, "  [ %s ]  ----  [ ?: ]\n", str); break;
-			case ' ': fprintf(fout, "  [ %s ]  ----  [ ¿Õ¸ñ ]\n", str); break;
+			case ' ': fprintf(fout, "  [ %s ]  ----  [ ç©ºæ ¼ ]\n", str); break;
 			case '{':case '}': fprintf(fout, "  [ %s ]  ----  [ {} ]\n", str); break;
 			case '[':case ']':case '(':case ')':case '.': fprintf(fout, "  [ %s ]  ----  [ [] () . ]\n", str); break;
 			case ',': fprintf(fout, "  [ %s ]  ----  [ , ]\n", str); break;
@@ -484,13 +485,13 @@ void LexAn::wordkind(char str[])
 			case '|': fprintf(fout, "  [ %s ]  ----  [ | ]\n", str); break;
 			case '^': fprintf(fout, "  [ %s ]  ----  [ ^ ]\n", str); break;
 			case '&': fprintf(fout, "  [ %s ]  ----  [ & ]\n", str); break;
-			default: fprintf(fout, "  [ %s ]  ----  [ ÆäËû·ûºÅ ]\n", str); break;
+			default: fprintf(fout, "  [ %s ]  ----  [ å…¶ä»–ç¬¦å· ]\n", str); break;
 			}
 		}
 	}
 	else
 	{
-		fprintf(fout, "  [ %s ]  ----  [ ´íÎóµÄµ¥´Ê ]\n", str);
+		fprintf(fout, "  [ %s ]  ----  [ é”™è¯¯çš„å•è¯ ]\n", str);
 	}
 }
 LexAn::~LexAn()
